@@ -36,10 +36,10 @@ jobs:
     runs-on: [aws-ec2]
     steps: 
       - name: Pull Image from Docker Hub
-        run: docker pull mani14360/treefamily:latest
+        run: docker pull ${{ secrets.DOCKER_USER_NAME }}/treefamily:latest
 
       - name: Delete Old Container
         run: docker rm -f treefamily-container 
 
       - name: Run Docker Container
-        run: docker run -d -p 8000:8000 --name treefamily-container treefamily
+        run: docker run -d -p 8000:8000 --name treefamily-container ${{ secrets.DOCKER_USER_NAME }}/treefamily:latest
