@@ -15,7 +15,7 @@ public class OnboardingController {
     @GetMapping("")
     @ResponseBody
     public String index(){
-        return "Hello World!";
+        return "It's me!";
     }
 
     @GetMapping("register")
